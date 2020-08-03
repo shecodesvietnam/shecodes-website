@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/shecodes-website-2020-aws/static/css/main.4053de78.chunk.css",
+    "main.js": "/shecodes-website-2020-aws/static/js/main.caf47d0b.chunk.js",
+    "main.js.map": "/shecodes-website-2020-aws/static/js/main.caf47d0b.chunk.js.map",
+    "runtime-main.js": "/shecodes-website-2020-aws/static/js/runtime-main.b8f74f80.js",
+    "runtime-main.js.map": "/shecodes-website-2020-aws/static/js/runtime-main.b8f74f80.js.map",
+    "static/js/2.6444f532.chunk.js": "/shecodes-website-2020-aws/static/js/2.6444f532.chunk.js",
+    "static/js/2.6444f532.chunk.js.map": "/shecodes-website-2020-aws/static/js/2.6444f532.chunk.js.map",
+    "index.html": "/shecodes-website-2020-aws/index.html",
+    "precache-manifest.52e8b840b3b7a8fa9f4a20e573e3616f.js": "/shecodes-website-2020-aws/precache-manifest.52e8b840b3b7a8fa9f4a20e573e3616f.js",
+    "service-worker.js": "/shecodes-website-2020-aws/service-worker.js",
+    "static/css/main.4053de78.chunk.css.map": "/shecodes-website-2020-aws/static/css/main.4053de78.chunk.css.map",
+    "static/js/2.6444f532.chunk.js.LICENSE.txt": "/shecodes-website-2020-aws/static/js/2.6444f532.chunk.js.LICENSE.txt",
+    "static/media/icon-font.css": "/shecodes-website-2020-aws/static/media/linea-basic-10.e6763f00.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b8f74f80.js",
+    "static/js/2.6444f532.chunk.js",
+    "static/css/main.4053de78.chunk.css",
+    "static/js/main.caf47d0b.chunk.js"
+  ]
+}

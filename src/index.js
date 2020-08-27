@@ -4,8 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 import ScrollToTop from './ScrollToTop';
+
+const history = createBrowserHistory();
+
+const path = (/#!(\/.*)$/.exec(document.location.hash) || [])[1];
+if (path) {
+	history.replace(path);
+}
 
 ReactDOM.render(
 	<React.StrictMode>

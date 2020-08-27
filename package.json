@@ -1,5 +1,4 @@
 {
-	"homepage": "http://shecodesvietnam.github.io/shecodes-website-2020-aws",
 	"name": "shecodes-website-aws",
 	"version": "0.1.0",
 	"private": true,
@@ -8,21 +7,32 @@
 		"@testing-library/react": "^9.5.0",
 		"@testing-library/user-event": "^7.2.1",
 		"axios": "^0.19.2",
+		"history": "^5.0.0",
 		"react": "^16.13.1",
 		"react-bootstrap": "^1.3.0",
 		"react-dom": "^16.13.1",
 		"react-router-dom": "^5.2.0",
 		"react-router-hash-link": "^2.0.0",
 		"react-scripts": "3.4.1",
+		"renamer": "^2.0.1",
+		"replace": "^1.2.0",
 		"styled-components": "^5.1.1"
 	},
 	"scripts": {
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"deploy": "aws s3 sync build/ s3://shecodesvietnam.tech --acl public-read",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"build": "react-scripts build && npm run build-rename && npm run build-fix-sourcemap && npm run build-fix-index",
+		"build-rename": "npm run build-rename-js && npm run build-rename-css",
+		"build-rename-js": "renamer --find \"/\\.[^\\.]+(\\.chunk)?\\.js/\" --replace \".js\" \"build/static/js/*\"",
+		"build-rename-css": "renamer --find \"/\\.[^\\.]+(\\.chunk)?\\.css/\" --replace \".css\" \"build/static/css/*\"",
+		"build-fix-sourcemap": "npm run build-fix-sourcemap-js && npm run build-fix-sourcemap-css",
+		"build-fix-sourcemap-js": "replace \"# sourceMappingURL=main..*.js.map\" \"# sourceMappingURL=main.js.map\" \"build/static/js/main.js\"",
+		"build-fix-sourcemap-css": "replace \"# sourceMappingURL=main..*.map\" \"# sourceMappingURL=main.css.map\" \"build/static/css/main.css\"",
+		"build-fix-index": "npm run build-fix-index-dynamic-chunk && npm run build-fix-index-static-chunk",
+		"build-fix-index-dynamic-chunk": "replace \"\\+\\(\\{\\}\\[u\\]\\|\\|u\\)\\+.\\..\\+\\{[^\\}]+\\}\\[u\\]\\+.\\.chunk\\.js.\" \"+u+\\\".js\\\"\" \"build/index.html\"",
+		"build-fix-index-static-chunk": "replace \"/static/(css|js)/([^\\.]+)\\.[^\\.]+\\.chunk\\.(css|js)\" \"/static/$1/$2.$3\" \"build/index.html\""
 	},
 	"eslintConfig": {
 		"extends": "react-app"
